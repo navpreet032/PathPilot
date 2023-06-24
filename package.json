@@ -3,13 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^9.77.0",
+    "@react-three/fiber": "^8.13.3",
+    "@react-three/postprocessing": "^2.14.11",
+    "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/three": "^0.152.1",
+    "drei": "^2.2.21",
+    "gltfjsx": "^6.2.3",
+    "jsdom-global": "^3.0.2",
+    "maath": "^0.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.1.1",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "three": "^0.153.0",
+    "valtio": "^1.10.5",
+    "web-vitals": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
