@@ -27,9 +27,9 @@ export const Map = React.memo((props) => {
     current: 'S1_A',
     items: {
       S1_A: 'orange',
-      S1_B: 'orange',
-      S1_C: 'orange',
-      S1_D: 'orange',
+      S1_B: 'grey',
+      S1_C: 'yellow',
+      S1_D: 'brown',
       S2_A: 'orange',
       S2_B: 'orange',
       S2_C: 'orange',
@@ -53,7 +53,7 @@ export const Map = React.memo((props) => {
   //  useEffect(()=>{
   //   ChangePathColor();
   // },[snap.current]);
-  
+
    //                            |
   //ERROR IS IN THIS PART ＞﹏＜ \/
   const handleMeshClick = (meshName) => { 
