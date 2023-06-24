@@ -53,8 +53,10 @@ export const Map = React.memo((props) => {
   //  useEffect(()=>{
   //   ChangePathColor();
   // },[snap.current]);
-
-  const handleMeshClick = (meshName) => {
+  
+   //                            |
+  //ERROR IS IN THIS PART ＞﹏＜ \/
+  const handleMeshClick = (meshName) => { 
     
     // const selectedColor = 'blue';
 
