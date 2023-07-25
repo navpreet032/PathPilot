@@ -1,0 +1,42 @@
+    .container {
+        height: 14%;
+        width: 18%;
+        position: absolute;
+        z-index: 999;
+    }
+
+.box {
+    text-align: center;
+    font-family: 'roboto';
+    top: 50px;
+    position: relative;
+    background: rgba(255, 185, 0, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: mymove 2s ease-in-out 3s forwards;
+}
+.hide{
+    display: hidden;
+
+}
+/* mwke padding of helpbox 4px */
+/* make margin of helpbox 4px */
+
+.helpbox{
+    position: absolute;
+    top: 135px;
+    padding: 9px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffb40454;
+    font-size: medium;
+    color: rgb(255, 174, 0);
+    border-radius: 8px;
+}
+@keyframes mymove {
+    0% {top: 200px; opacity:0}
+    
+    100% {top: 50px; opacity:1; }
+  }

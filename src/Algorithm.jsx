@@ -2,6 +2,13 @@
 //https://gist.github.com/Prottoy2938/66849e04b0bac459606059f5f9f3aa1a
 //https://codesandbox.io/s/raycast-vehicle-ebr0x?file=/src/App.js
 // npx gltfjsx Scene.glb
+/**
+ * This file contains the implementation of Dijkstra's algorithm on a weighted graph.
+ * It exports a function called findPath that takes two arguments, start and end, and returns an array of vertices representing the shortest path from start to end.
+ * The graph is represented using an adjacency list and a WeightedGraph class.
+ * The function uses a PriorityQueue to keep track of the nodes with the smallest distance from the start node.
+ * The function also includes a commented out path function that takes an array of vertices and returns a string representing the path in terms of the routes taken.
+ */
 class Node {
     constructor(val, priority) {
       this.val = val;
@@ -48,6 +55,7 @@ class Node {
         let leftChildIdx = 2 * idx + 1;
         let rightChildIdx = 2 * idx + 2;
         let leftChild, rightChild;
+
         let swap = null;
   
         if (leftChildIdx < length) {
@@ -139,29 +147,69 @@ class Node {
   export default function findPath(s,e){
     var graph = new WeightedGraph();
     graph.addVertex("start");
-    graph.addVertex("S1_A");
+
+    graph.addVertex("S1_A_Right");
+    graph.addVertex("S1_A_Left");
     graph.addVertex("S1_B");
     graph.addVertex("S1_C");
     graph.addVertex("S1_D");
-    graph.addVertex("S1_A");
-    graph.addVertex("S1_B");
-    graph.addVertex("S1_C");
-    graph.addVertex("S1_D");
+
+    graph.addVertex("S2_A");
+    graph.addVertex("S2_B");
+    graph.addVertex("S2_C_Right");
+    graph.addVertex("S2_C_Left");
+    graph.addVertex("S2_D");
+
     graph.addVertex("L1");
     graph.addVertex("L2");
+
     graph.addVertex("P1");
     graph.addVertex("P2");
     graph.addVertex("P3");
     graph.addVertex("P4");
+
     graph.addVertex("end");
     
-  
-    graph.addEdge("start", "S1_A", 5);
-    graph.addEdge("S1_A", "S1_B", 4);
-    graph.addEdge("S1_B", "S1_C", 4);
-    graph.addEdge("S1_C", "S1_D", 4);
-    graph.addEdge("S1_D", "S1_A", 4);
-  
+  // part START
+graph.addEdge("S1_A_Left", "S1_A_Right", 2);
+graph.addEdge("start", "S1_A_Right", 5);
+graph.addEdge("start", "S1_A_Left", 5);
+graph.addEdge("S1_A_Left", "S1_B", 2); // Decreased weight from 2 to 1
+graph.addEdge("S1_B", "S1_C", 4); // Decreased weight from 4 to 2
+graph.addEdge("S1_C", "S1_D", 4); // Decreased weight from 4 to 2
+graph.addEdge("S1_D", "S1_A_Right", 2); // Decreased weight from 2 to 1
+graph.addEdge("S1_B", "P1", 2); // Decreased weight from 2 to 1
+graph.addEdge("S1_D", "P2", 2); // Decreased weight from 2 to 1
+
+// part MIDDLE
+graph.addEdge("P1", "S1_C", 2);
+graph.addEdge("P1", "L1", 10);
+graph.addEdge("P3", "L1", 10);
+graph.addEdge("P3", "S2_A", 2);
+graph.addEdge("P3", "S2_B", 2);
+
+graph.addEdge("P2", "S1_C", 2);
+graph.addEdge("P2", "L2", 10);
+graph.addEdge("P4", "L2", 10);
+graph.addEdge("P4", "S2_A", 2);
+graph.addEdge("P4", "S2_D", 2);
+
+// part END
+
+
+
+
+graph.addEdge("S2_A", "S2_D", 4);
+graph.addEdge("S2_D", "S2_C_Right", 2);
+graph.addEdge("end", "S2_C_Right", 5);
+graph.addEdge("S2_B", "S2_A", 4);
+graph.addEdge("end", "S2_C_Left", 5);
+graph.addEdge("S2_C_Right", "S2_C_Left", 2); // Decreased weight from 2 to 1
+graph.addEdge("S2_B", "S2_C_Left", 2);
+graph.addEdge("S2_B", "P3", 2);
+graph.addEdge("S2_D", "P4", 2);
+graph.addEdge("S2_A", "P4", 2);
+
     
     
     
@@ -171,18 +219,7 @@ class Node {
    
    return ans;
   }
-//    function path(s='p2',e='p6'){
-//     let arr=Map('start','S1_C')
-//     console.log(arr)
-//     var res=""
-//     var data={"p1 p2":"r_1","p2 p1":"r_1","p1 p4":"r_4","p1 p6":"r_7","p2 p3":"r_2","p3 p2":"r_2","p3 p4":"r_3","p4 p1":"r_4","p4 p3":"r_3","p4 p5":"r_5","p5 p6":"r_6","p5 p4":"r_5","p6 p5":"r_6","p6 p1":"r_7"}
-//     for(let i=0;i<(arr.length)-1;i++){
-//      res= res+" "+data[(arr[i]+" "+arr[i+1])];
-//      console.log(res)
-//   }
-  
-//   return res;
-//   }
+
   
   
   

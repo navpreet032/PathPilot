@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-spring/three": "^9.7.3",
+    "@react-spring/web": "^9.7.3",
+    "@react-three/cannon": "^6.5.2",
     "@react-three/drei": "^9.77.0",
     "@react-three/fiber": "^8.13.3",
     "@react-three/postprocessing": "^2.14.11",
@@ -19,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
     "react-scripts": "5.0.1",
+    "react-spring": "^9.7.2",
     "three": "^0.153.0",
     "valtio": "^1.10.5",
     "web-vitals": "^3.3.2"
@@ -46,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.5"
   }
 }
