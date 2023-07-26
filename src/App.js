@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { Environment, Loader, MeshReflectorMaterial, OrbitControls, OrthographicCamera, PerspectiveCamera, useGLTF } from '@react-three/drei'
+import { Environment, Loader, MeshReflectorMaterial, OrbitControls, useGLTF } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 import findPath from './Algorithm'
 import { MeshBasicMaterial } from 'three'
@@ -8,7 +8,7 @@ import { useSnapshot, proxy } from 'valtio'
 import { useDispatch } from 'react-redux'
 import { getEnd, getStart } from './redux/slice'
 import Ctrld_Hoverboard from './hoverBoard/Ctrld_Hoverboard'
-import { City } from './map/City'
+
 import { Hovership } from './mesh/Hovership'
 
 
@@ -107,8 +107,8 @@ export default function App() {
         <color attach="background" args={['#17171b']} />
         <ambientLight intensity={0.25} />
         <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]} />
-        {/* <City scale={[.2, .3, .2]} position={[-4.2, -1.6, 0]}/> */}
         
+        {/* Hovership => flying plane */}
         <Hovership position={[1, -1.5, -1.6]} scale={[.16, .16, .16]} />
         <Map scale={[.2, .1, .2]} position={[0, -1.5, 0]} userData={{ excludeShadow: true }} setSelectedMesh={setSelectedMesh} />
         <Ctrld_Hoverboard />
@@ -116,7 +116,6 @@ export default function App() {
         <Plane />
 
         <OrbitControls autoRotate autoRotateSpeed={0.05} enableZoom={true} makeDefault minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} />
-        {/* <Campos event='mousedown'/>// camerapositionhelper */}
         <EffectComposer disableNormalPass>
           <Bloom luminanceThreshold={1} mipmapBlur />
         </EffectComposer>
